@@ -8,9 +8,10 @@ gem 'require_all'
 gem 'thin'
 gem 'bcrypt'
 gem 'sqlite3'
-gem 'rack-flash3'
+gem 'sinatra-flash'
 
-group :test do 
+
+group :test do
     gem 'rspec'
     gem 'capybara'
     gem 'rack-test'
