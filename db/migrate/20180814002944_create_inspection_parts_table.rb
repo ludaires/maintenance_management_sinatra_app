@@ -5,7 +5,8 @@ class CreateInspectionPartsTable < ActiveRecord::Migration
       t.references :part
 
       # https://stackoverflow.com/questions/20937792/rails-adding-migration-to-add-an-array-default-empty
-      t.string :codes, :string, array: true, default: []
+      # t.string :codes, :string, array: true, default: []
+      t.text :codes, array: true, default: []
     end
   end
 end
