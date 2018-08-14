@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/' do
-        "Welcome"
+        erb :'welcome'
     end
 
-end
+end 
