@@ -38,8 +38,7 @@ ActiveRecord::Schema.define(version: 20180814003012) do
   create_table "inspection_parts", force: :cascade do |t|
     t.integer "inspection_id"
     t.integer "part_id"
-    t.string  "codes",         default: "--- []\n"
-    t.string  "string",        default: "--- []\n"
+    t.text    "codes",         default: "--- []\n"
   end
 
   create_table "inspections", force: :cascade do |t|
@@ -65,6 +64,7 @@ ActiveRecord::Schema.define(version: 20180814003012) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "username",        null: false
     t.string "email",           null: false
     t.string "password_digest", null: false
   end
