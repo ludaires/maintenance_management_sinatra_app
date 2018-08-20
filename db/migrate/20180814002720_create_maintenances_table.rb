@@ -4,6 +4,7 @@ class CreateMaintenancesTable < ActiveRecord::Migration
       t.references :equipment
       t.references :user
       t.string :status
+      t.string :next_maintenance_date
 
       t.timestamps
     end
