@@ -139,3 +139,362 @@ puts 'Seeding the equipment...'
         e.uncertainty = equipment[:uncertainty]
     end
 }
+
+# Populate the Code table
+
+[
+    {
+        code: 'P1',
+        code_type: 'Problemas',
+        title: 'Nenhum'      
+    },
+    {
+        code: 'P2',
+        code_type: 'Problemas',
+        title: 'Folgado'
+    },
+    {
+        code: 'P3',
+        code_type: 'Problemas',
+        title: 'Solto'
+    },
+    {
+        code: 'P4',
+        code_type: 'Problemas',
+        title: 'Quebrado'
+    },
+    {
+        code: 'P5',
+        code_type: 'Problemas',
+        title: 'Oxidado'
+    },
+    {
+        code: 'P6',
+        code_type: 'Problemas',
+        title: 'Queimado'
+    },
+    {
+        code: 'P7',
+        code_type: 'Problemas',
+        title: 'Em Curto'
+    },
+    {
+        code: 'P8',
+        code_type: 'Problemas',
+        title: 'Desalinhado'
+    },
+    {
+        code: 'P9',
+        code_type: 'Problemas',
+        title: 'Baixa Velocidade'
+    },
+    {
+        code: 'P10',
+        code_type: 'Problemas',
+        title: 'Barulho'
+    },
+    {
+        code: 'P11',
+        code_type: 'Problemas',
+        title: 'Segurança'
+    },
+    {
+        code: 'P12',
+        code_type: 'Problemas',
+        title: 'Temperatura Alta'
+    },
+    {
+        code: 'P13',
+        code_type: 'Problemas',
+        title: 'Temperatura Baixa'
+    },
+    {
+        code: 'P14',
+        code_type: 'Problemas',
+        title: 'Entupido'
+    },
+    {
+        code: 'P15',
+        code_type: 'Problemas',
+        title: 'Intermitente'
+    },
+    {
+        code: 'P16',
+        code_type: 'Problemas',
+        title: 'Balanceamento'
+    },
+    {
+        code: 'P17',
+        code_type: 'Problemas',
+        title: 'Instabilidade'
+    },
+    {
+        code: 'P18',
+        code_type: 'Problemas',
+        title: 'Leitura Incorreta'
+    },
+    {
+        code: 'C1',
+        code_type: 'Causas',
+        title: 'Não Aplicável'
+    },
+    {
+        code: 'C2',
+        code_type: 'Causas',
+        title: 'Desativado'
+    },
+    {
+        code: 'C3',
+        code_type: 'Causas',
+        title: 'Objeto Estranho'
+    },
+    {
+        code: 'C4',
+        code_type: 'Causas',
+        title: 'Interrompido'
+    },
+    {
+        code: 'C5',
+        code_type: 'Causas',
+        title: 'Controles'
+    },
+    {
+        code: 'C6',
+        code_type: 'Causas',
+        title: 'Queda de Energia'
+    },
+    {
+        code: 'C7',
+        code_type: 'Causas',
+        title: 'Sobrecarga'
+    },
+    {
+        code: 'C8',
+        code_type: 'Causas',
+        title: 'Transporte'
+    },
+    {
+        code: 'C9',
+        code_type: 'Causas',
+        title: 'Desgaste'
+    },
+    {
+        code: 'C10',
+        code_type: 'Causas',
+        title: 'Ambiente'
+    },
+    {
+        code: 'C11',
+        code_type: 'Causas',
+        title: 'Danificado'
+    },
+    {
+        code: 'C12',
+        code_type: 'Causas',
+        title: 'Acionadores'
+    },
+    {
+        code: 'C13',
+        code_type: 'Causas',
+        title: 'Programa'
+    },
+    {
+        code: 'C14',
+        code_type: 'Causas',
+        title: 'Falha Operacional'
+    },
+    {
+        code: 'C15',
+        code_type: 'Causas',
+        title: 'Qualidade'
+    },
+    {
+        code: 'C16',
+        code_type: 'Causas',
+        title: 'Alimentação'
+    },
+    {
+        code: 'C17',
+        code_type: 'Causas',
+        title: 'Desalinhamento'
+    },
+    {
+        code: 'C18',
+        code_type: 'Causas',
+        title: 'Instalação'
+    },
+    {
+        code: 'C19',
+        code_type: 'Causas',
+        title: 'Sujeira'
+    },
+    {
+        code: 'A1',
+        code_type: 'Ações',
+        title: 'Substituído'
+    },
+    {
+        code: 'A2',
+        code_type: 'Ações',
+        title: 'Reformado'
+    },
+    {
+        code: 'A3',
+        code_type: 'Ações',
+        title: 'Vedado'
+    },
+    {
+        code: 'A4',
+        code_type: 'Ações',
+        title: 'Calibrado'
+    },
+    {
+        code: 'A5',
+        code_type: 'Ações',
+        title: 'Condicionado'
+    },
+    {
+        code: 'A6',
+        code_type: 'Ações',
+        title: 'Lubrificado'
+    },
+    {
+        code: 'A7',
+        code_type: 'Ações',
+        title: 'Ajustado'
+    },
+    {
+        code: 'A8',
+        code_type: 'Ações',
+        title: 'Limpo'
+    },
+    {
+        code: 'A9',
+        code_type: 'Ações',
+        title: 'Removido'
+    },
+    {
+        code: 'A10',
+        code_type: 'Ações',
+        title: 'Instalado'
+    },
+    {
+        code: 'A11',
+        code_type: 'Ações',
+        title: 'Modificado'
+    },
+    {
+        code: 'A12',
+        code_type: 'Ações',
+        title: 'Faltou Material'
+    },
+    {
+        code: 'A13',
+        code_type: 'Ações',
+        title: 'Alinhado'
+    },
+    {
+        code: 'A14',
+        code_type: 'Ações',
+        title: 'Reprogramado'
+    },
+    {
+        code: 'A15',
+        code_type: 'Ações',
+        title: 'Checagem Rotação'
+    },
+    {
+        code: 'A16',
+        code_type: 'Ações',
+        title: 'Inspecionado'
+    },
+    {
+        code: 'A17',
+        code_type: 'Ações',
+        title: 'Rotina de Testes'
+    }
+].each { |code|
+    Code.find_or_create_by(code: code[:code]) do |c|
+        c.code = code[:code]
+        c.code_type = code[:code_type]
+        c.title = code[:title]
+    end
+}
+
+# Populate Parts Table
+[
+    {
+        description: 'Display'
+    },
+    {
+        description: 'Terminais'
+    },
+    {
+        description: 'Chaves de ON/OFF'
+    },
+    {
+        description: 'Fusível'
+    },
+    {
+        description: 'Cabos de Força'
+    },
+    {
+        description: 'Conexões Elétricas'
+    },
+    {
+        description: 'Termostato'
+    },
+    {
+        description: 'Termômetro'
+    },
+    {
+        description: 'Resistência'
+    },
+    {
+        description: 'Eletrodo'
+    },
+    {
+        description: 'Sensores'
+    },
+    {
+        description: 'Lâmpada'
+    },
+    {
+        description: 'Alinhamento'
+    },
+    {
+        description: 'Rotação'
+    },
+    {
+        description: 'Vibração'
+    },
+    {
+        description: 'Alimentação'
+    },
+    {
+        description: 'Vazão'
+    },
+    {
+        description: 'Linha/Mangueira'
+    },
+    {
+        description: 'Válvula'
+    },
+    {
+        description: 'Programa'
+    },
+    {
+        description: 'Escala'
+    },
+    {
+        description: 'Temporizador'
+    },
+    {
+        description: 'Sistema Óptico'
+    },
+    {
+        description: 'Calibração'
+    }
+].each { |part|
+    Part.find_or_create_by(description: part[:description])
+}
