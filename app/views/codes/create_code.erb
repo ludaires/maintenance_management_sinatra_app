@@ -1,0 +1,21 @@
+<% if flash[:message] %>
+  <h2><%= flash[:message] %></h2>
+<% end %>
+
+<h2>Create a new code</h2>
+
+<form method="post" action="/new">
+    <p>
+        <label for="code">Code:</label>
+        <input type="text" name="code" id="code">
+    </p>
+    <p>
+        <label for="code_type">Code type:</label>
+        <input type="text" name="code_type" id="code_type">
+    </p>
+    <p>
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title">
+    </p>
+    <input type="submit" value="Create new code">
+</form>
