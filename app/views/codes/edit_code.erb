@@ -1,0 +1,24 @@
+<h2>Edit Code</h2>
+
+<% if @c.errors.any? %>
+  <h2 class="error-message"><%= @c.errors.full_messages.to_sentence %></h2>
+<% end %>
+
+
+<form method="post" action="/codes/<%=@c.id%>">
+    <input type="hidden" name="_method" value="patch">
+    <p>
+        <label for="code">Code:</label>
+        <input type="text" name="code" id="code" placeholder="<%=@c.code%>">
+    </p>
+    <p>
+        <label for="code_type">Code type:</label>
+        <input type="text" name="code_type" id="code_type" placeholder="<%=@c.code_type%>">
+    </p>
+    <p>
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" placeholder="<%=@c.title%>">
+    </p>
+    <input type="submit" value="Update">
+</form>
+<p> <a href="/codes/create_code"><button>Create</button></a></p>
