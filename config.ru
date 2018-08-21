@@ -12,4 +12,5 @@ end
 
 use Rack::MethodOverride
 use UserController
+use CodeController
 run ApplicationController
