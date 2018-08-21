@@ -21,19 +21,17 @@ ActiveRecord::Schema.define(version: 20180814003012) do
     t.datetime "updated_at"
   end
 
-  create_table "equipments", force: :cascade do |t|
+  create_table "equipment", force: :cascade do |t|
     t.string   "code"
     t.string   "name"
     t.string   "location"
     t.string   "calibration_unit"
-    t.float    "calibration_start"
-    t.float    "calibration_end"
-    t.float    "uncertainty"
+    t.string   "calibration_start"
+    t.string   "calibration_end"
+    t.string   "uncertainty"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "equipments", ["name"], name: "index_equipments_on_name"
 
   create_table "inspection_parts", force: :cascade do |t|
     t.integer "inspection_id"
@@ -53,6 +51,7 @@ ActiveRecord::Schema.define(version: 20180814003012) do
     t.integer  "equipment_id"
     t.integer  "user_id"
     t.string   "status"
+    t.string   "next_maintenance_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
