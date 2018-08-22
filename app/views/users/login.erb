@@ -1,11 +1,19 @@
-<h2>Por favor, entre com seu usuário</h2>
+<% if flash[:message] %>
+  <h2><%= flash[:message] %></h2>
+<% end %>
+
+<h2>Please, enter your user name and password</h2>
 
 <form method="post" action="/login">
-    <label for="username">Nome de usuário:</label>
-    <p><input type="text" name="username" id="username" placeholder="Digite seu nome de usuário"></p><br>
-    <label for="password">Nome de usuário:</label>
-    <p><input type="text" name="password" id="password" placeholder="Digite sua senha"></p><br>
-    <input type="submit" value="Entre">
+    <p>
+        <label for="username">User name:</label>
+        <input type="text" name="username" id="username" placeholder="Type username">
+    </p><br>
+    <p>
+        <label for="password">Password</label>
+        <input type="text" name="password" id="password" placeholder="Type password">
+    </p><br>
+    <input type="submit" value="Log In">
 </form>
 
 <p> <a href="/"><button>Go Back</button></a></p>
