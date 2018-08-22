@@ -29,6 +29,7 @@ class ApplicationController < Sinatra::Base
         def set_session
             session[:user_id] = @user.id
         end
+    end
 
-        
+
 end 
