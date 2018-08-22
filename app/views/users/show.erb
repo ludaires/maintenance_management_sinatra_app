@@ -1,2 +1,12 @@
-<%=@user.username.capitalize!%>
+<!-- Display user's home page-->
+<% if flash[:message] %>
+  <h2><%= flash[:message] %></h2>
+<% end %>
 
+
+
+<h1>Welcome, <%=@user.username.capitalize%></h1>
+
+<%# logout %>
+
+<p><a href="/logout"><button>Logout</button></a></p>
