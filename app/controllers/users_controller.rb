@@ -73,7 +73,6 @@ class UserController < ApplicationController
 
     # home page user
     get '/users/:id' do
-        binding.pry
         @user = current_user
         if logged_in?
             erb :'/users/show'
