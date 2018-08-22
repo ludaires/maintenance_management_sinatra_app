@@ -35,6 +35,15 @@ class CodeController < ApplicationController
     end
 
 
+    # delete action
+    get '/code/:id/delete' do
+        erb :'/codes/delete_code'
+    end
+    
+    delete '/codes/:id/delete' do
+        @c = Code.find(params[:id])
+        @c.delete
+    end
 
 
 
