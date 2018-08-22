@@ -1,0 +1,20 @@
+<% if flash[:message] %>
+  <h2><%= flash[:message] %></h2>
+<% end %>
+
+<form method="post" action="users/<%=@user.id%>">
+    <input type="hidden" name="_method" value="delete">  
+    <p>
+        <label for="username">User name:</label>
+        <input type="text" name="username" id="username" placeholder="<%=@user.username%>">
+    </p><br>
+    <p>
+        <label for="password">Email</label>
+        <input type="text" name="password" id="password" placeholder="<%=@user.email%>">
+    </p><br>
+    <p>
+        <label for="password">Password</label>
+        <input type="text" name="password" id="password" placeholder="<%=@user.password%>">
+    </p><br>
+    <input type="submit" value="Delete">
+</form>
