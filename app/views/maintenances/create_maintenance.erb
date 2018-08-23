@@ -1,0 +1,31 @@
+<h2>Create a new maintenance</h2>
+
+<form method="post" action="/maintenances/new">
+    <p>
+        <label for="equipment">Choose equipment</label>
+        <%Equipment.all.each do |equipment|%>
+            <ul>
+                <input id="equipment" type="checkbox" name="equipment_id" value="<%=equipment.id%>"></input>
+                <%=equipment.name%> | <%=equipment.code%>            
+            </ul>
+        <%end%>
+        
+    </p><br>
+    <p>
+        <label for="status">Status: <label>
+            <select name="status">
+                <option value="in_progress">In Progress</option>
+                <option value="aproved">Aproved</option>
+                <option value="reproved">Reproved</option>
+            </select>
+    </p><br>
+
+    <p>
+        <label>Next Maintenance Date: </label>
+        <p>Choose Date: 
+        <input type="text" name="next_maintenance_date" id="next_maintenance_date"></input>
+        </p>
+    </p><br>
+    
+    <input type="submit" value="Open New Maintenance"></input>          
+</form>
