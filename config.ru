@@ -11,6 +11,8 @@ end
 
 
 use Rack::MethodOverride
-use UserController
-use CodeController
+use UsersController
+use CodesController
+use MaintenancesController
+use InspectionsController
 run ApplicationController
