@@ -1,4 +1,4 @@
-class CodeController < ApplicationController
+class CodesController < ApplicationController
 
     # create action
     get '/codes/new' do
