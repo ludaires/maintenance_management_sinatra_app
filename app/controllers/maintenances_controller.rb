@@ -2,12 +2,12 @@ class MaintenancesController < ApplicationController
 
 
     get '/maintenances/new' do
-        # if logged_in? 
-        #     @user = current_user
+        if logged_in? 
+            @user = current_user
             erb :'/maintenances/create_maintenance'
-        # else
-        #     redirect :'/users/login'
-        # end
+        else
+            redirect :'/users/login'
+        end
     end
 
     post '/maintenances/new' do
@@ -19,6 +19,18 @@ class MaintenancesController < ApplicationController
         @user.maintenances << @maintenance
         @equipment.maintenances << @maintenance
 
-        erb :"/maintenances/show_maintenance"
+        redirect :"/maintenances/#{@maintenance.id}"
     end
+
+    get '/maintenances/:id' do
+        @maintenance = Maintenance.find_by_id(params[:id])
+        @user = @maintenance.user
+        @equipment = @maintenance.equipment
+
+        erb :'/maintenances/show_maintenance'
+    end
+
+
+
+
 end
