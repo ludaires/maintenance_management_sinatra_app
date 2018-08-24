@@ -1,9 +1,19 @@
-<h2>Hello <%=@user.username%></h2>
+<p>ID: <%= @maintenance.equipment.name %></p>
+<p>Equipment: <%= @maintenance.equipment.name %></p>
+<p>User: <%= @maintenance.user.username %></p>
+<p>Code: <%= @maintenance.equipment.code %></p>
+<p>Status: <%= @maintenance.status %></p>
 
-<p>Equipment: <%=@maintenance.equipment.name%></p>
-<p>Code: <%=@maintenance.equipment.code%></p>
-<p>Status: <%=@maintenance.status%></p>
-
-
+<form method="post" action="/maintenances/<%= @maintenance.id %>/inspections">
+    <h3>Create New Inspection</h2>    
+    <input type="hidden" name="maintenance_id" value="<%= @maintenance.id %>"><br>
+    <label for="maintenancce_type">Maintenance Type: </label>
+    <select id="maintenancce_type" name="maintenance_type">
+        <option value="Preventive">Preventive</option>
+        <option value="Corrective">Corrective</option>
+    </select>
+    <input text="text" name="notes" placeholder="Notes...">
+    <input type="submit" value="Save">
+</form>
 
 <%# <p>Please, choose what kind of maintenance this equipment is going to receive</p> %>
