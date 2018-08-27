@@ -1,31 +1,34 @@
 <h2>Create Maintenance</h2>
 
 <form method="post" action="/maintenances">
-    <input type="hidden" name="user_id" value="<%= current_user.id %>">
-    <p>
-        <label for="equipment">Equipment:</label>
-        <select id="equipment"name="equipment_id">
-            <% Equipment.all.each do |equipment| %>
-            <option value="<%=equipment.id%> "><%= "#{equipment.code} - #{equipment.name}" %></option>
-            <% end %>
-        </select>        
-    </p>
-    <br>
-    <p>
-        <label for="status">Status: <label>
-            <select name="status">
-                <option value="in_progress">In Progress</option>
-                <option value="aproved">Aproved</option>
-                <option value="reproved">Reproved</option>
-            </select>
-    </p>
-    <br>
-    <p>
-        <label>Next Maintenance Date: </label>
-        <p>Choose Date: 
-        <input type="text" name="next_maintenance_date" id="next_maintenance_date"></input>
-        </p>
-    </p>
+    <input type="hidden" name="maintenance[user_id]" value="<%= current_user.id %>">
+
+    <label for="equipment">Equipment:</label>
+    <select id="equipment"name="maintenance[equipment_id]">
+        <% Equipment.all.each do |equipment| %>
+        <option value="<%=equipment.id%> "><%= "#{equipment.code} - #{equipment.name}" %></option>
+        <% end %>
+    </select>        
+    <br></br>
+    <label for="status">Status: </label>
+    <select id="status" name="maintenance[status]">
+        <option value="in_progress">In Progress</option>
+        <%# <option value="aproved">Aproved</option>
+        <option value="reproved">Reproved</option> %>
+    </select>
+    <br></br>
+    <label for="inspection">Inspection Type: </label>
+    <select id="inspection" name="inspection[inspection_type]">
+        <option value="Preventive">Preventive</option>
+        <option value="Corrective">Corrective</option>
+    </select>
+    <br></br>
+    <label for="notes">Notes: </label>
+    <input id="notes" text="text" name="inspection[notes]" placeholder="Notes...">    
+    <br></br>
+
+    <label>Next Maintenance Date: </label>
+    <input type="text" name="maintenance[next_maintenance_date]" id="next_maintenance_date"></input>
     <br>    
     <button class="btn btn-primary" type="submit">Save</button>    
     <a class="btn btn-link" href="../users/id">Back</a>
