@@ -15,4 +15,5 @@ use UsersController
 use CodesController
 use MaintenancesController
 use InspectionsController
+use InspectionPartsController
 run ApplicationController
