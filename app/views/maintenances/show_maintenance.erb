@@ -6,14 +6,38 @@
 
 <form method="post" action="/maintenances/<%= @maintenance.id %>/inspections">
     <h3>Create New Inspection</h2>    
-    <input type="hidden" name="maintenance_id" value="<%= @maintenance.id %>"><br>
-    <label for="maintenancce_type">Maintenance Type: </label>
-    <select id="maintenancce_type" name="maintenance_type">
+    <input type="hidden" name="inspection[maintenance_id]" value="<%= @maintenance.id %>"><br>
+    <label for="inspection_type">Inspection Type: </label>
+    <select id="inspection_type" name="inspection[inspection_type]">
         <option value="Preventive">Preventive</option>
         <option value="Corrective">Corrective</option>
     </select>
-    <input text="text" name="notes" placeholder="Notes...">
+    <br></br>
+    <label for="inspection_id">Items verified:</label>
+    <select id="inspection_id" name="inspection_parts[part_id]">
+        <% Part.all.each do |part| %>
+            <option value="<%=part.id%> "><%= "#{part.description}" %></option>
+        <% end %>
+    </select>  
+    <select id="inspection_id" name="inspection_parts[code_id_1]">
+         <% @issues.each do |code| %>
+        <option value="<%=code.code%> "><%= "#{code.code_type} | #{code.title}" %></option>
+        <% end %>
+    </select> 
+
+    <select id="inspection_id" name="inspection_parts[code_id_2]">
+         <% @causes.each do |code| %>
+        <option value="<%=code.code%> "><%= "#{code.code_type} | #{code.title}" %></option>
+        <% end %>
+    </select> 
+
+    <select id="inspection_id" name="inspection_parts[code_id_3]">
+         <% @actions.each do |code| %>
+        <option value="<%=code.code%> "><%= "#{code.code_type} | #{code.title}" %></option>
+        <% end %>
+    </select> 
+    <br></br>
+    <input text="text" name="inspection[notes]" placeholder="Notes...">
     <input type="submit" value="Save">
 </form>
 
-<%# <p>Please, choose what kind of maintenance this equipment is going to receive</p> %>
