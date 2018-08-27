@@ -1,5 +1,6 @@
-<p>ID: <%= @inspection_part.inspection.maintenance.id %></p>
+<p>Maintenance ID: <%= @inspection_part.inspection.maintenance.id %></p>
 <p>Inspection ID: <%= @inspection_part.inspection.id %></p>
+<p>Inspection Parts ID: <%= @inspection_part.id %>
 <p>Equipment: <%= @inspection_part.inspection.maintenance.equipment.name %></p>
 <p>User: <%= @inspection_part.inspection.maintenance.user.username %></p>
 <p>Code: <%= @inspection_part.inspection.maintenance.equipment.code %></p>
@@ -7,3 +8,8 @@
 <p>Inspection Type: <%= @inspection_part.inspection.inspection_type %></p>
 <p>Verified Items: <%= @inspection_part.part.description %>
 <p>Analyses Code: <%= @inspection_part.codes %>
+
+
+
+<p><a href="../maintenances/<%= @inspection_part.inspection.maintenance.id %>"><button>Add new item to inspect</button></a></p>
+<p><a href="../maintenances/<%= @inspection_part.inspection.maintenance.id %>/edit"><button>Close maintenance</button></a></p>
