@@ -18,11 +18,16 @@ class MaintenancesController < ApplicationController
 
     get '/maintenances/:id' do
         @maintenance = Maintenance.find(params[:id])
-        @inspection = Inspection.find(@maintenance.id)
-        @issues = Code.where(code_type: "Problemas")
-        @causes = Code.where(code_type: "Causas")
-        @actions = Code.where(code_type: "Ações")
-        erb :'/maintenances/show_maintenance'
+        if logged_in? && @maintenance.user.id == current_user.id
+            @inspection = Inspection.find(@maintenance.id)
+            @issues = Code.where(code_type: "Problemas")
+            @causes = Code.where(code_type: "Causas")
+            @actions = Code.where(code_type: "Ações")
+            erb :'/maintenances/show_maintenance'
+        else
+            flash[:message] = "Your user doesn't have the permission to edit this maintenance."
+            redirect :'/users/login'
+        end
     end
 
     post '/maintenances/:id/inspections' do
@@ -34,9 +39,13 @@ class MaintenancesController < ApplicationController
     end
 
     get '/maintenances/:id/edit' do
-        # raise params.inspect
         @maintenance = Maintenance.find(params[:id])
-        erb :"/maintenances/edit_maintenance"
+        if logged_in? && @maintenance.user.id == current_user.id
+            erb :"/maintenances/edit_maintenance"
+        else
+            flash[:message] = "Your user doesn't have the permission to edit this maintenance."
+            redirect :'/users/login'
+        end
     end
 
     patch '/maintenances/:id' do
