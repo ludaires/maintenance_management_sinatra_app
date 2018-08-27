@@ -1,4 +1,4 @@
-<p>ID: <%= @maintenance.equipment.id %></p>
+<h2>Maintenance ID: <%= @maintenance.equipment.id %></h2>
 <p>Equipment: <%= @maintenance.equipment.name %></p>
 <p>User: <%= @maintenance.user.username %></p>
 <p>Code: <%= @maintenance.equipment.code %></p>
@@ -34,9 +34,22 @@
             <% end %>
         </select> 
         <br></br>
-        <input text="text" name="inspection[notes]" placeholder="Notes...">
+
+         <label for="notes">Notes:</label>
+        <input id="notes" text="text" name="inspection[notes]" placeholder="Notes...">
+        <br></br>
         <input type="submit" value="Save">
+        <p><a href="../maintenances/<%= @maintenance.id %>/edit"><button>Close maintenance</button></a></p>
     </form>
 <%else%>
-    <h1>This Maintenance is closed.</h1>
+    <p>Items Checked:</p>
+    <ul>
+        <% @inspection.inspection_parts.each do |ip| %>
+            <li><p><%= @description = Part.find(ip.part_id).description %> | <%= ip.codes %></p></li>
+        <%end%>
+    </ul>
+    <br></br>
+    <h3>This Maintenance is closed.</h3>
 <%end%>
+
+<a class="btn btn-link" href="../users/id">Back</a>
