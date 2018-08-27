@@ -1,0 +1,13 @@
+
+<h3>Close maintenance </h3>
+<p> Maintenance ID: <%= @maintenance.id%></p>
+<p> Equipment:  <%= @maintenance.equipment.name %></p>
+<form method="post" action="/maintenances/<%= @maintenance.id%>">
+    <input type="hidden" name="_method" value="Patch">
+    <select id="status" name="status" placehold="<%= @maintenance.status%>">
+        <%# <option value="in_progress">In Progress</option> %>
+        <option value="aproved">Aproved</option>
+        <option value="reproved">Reproved</option>
+    </select>
+    <input type="submit" value="Close Maintenance">
+</form> fcd
