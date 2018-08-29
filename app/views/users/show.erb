@@ -3,10 +3,10 @@
   <h2><%= flash[:message] %></h2>
 <% end %>
 
-<h1>Welcome, <%=@user.username.capitalize%></h1>
+<h1>Welcome, <%= current_user.username.capitalize %></h1>
 <br></br>
-<h2> List of Maintenances </h2>
-<% @user.maintenances.each do |maintenance|%>
+<h2> List of your Maintenances </h2>
+<% current_user.maintenances.each do |maintenance| %>
   <ul>
     <li><p><a href="/maintenances/<%=maintenance.id%>"><%= maintenance.equipment.code%> | <%= maintenance.equipment.name%> | <%= maintenance.status%></a></p></li>
   </ul>
