@@ -1,0 +1,12 @@
+<h3>List of all equipments existents.</h3>
+
+<% Equipment.all.each do |equipment| %>
+    <p><%= equipment.code %> | <%= equipment.name %></p>
+    <ul>
+            <%if equipment.maintenances %>
+            <% equipment.maintenances.each do |m|%>
+                <li><p><a href="maintenances/<%= m.id %>">Maintenance ID: <%= m.id %> | <%= m.status %> | <%= m.user.username %></a></p></li>
+            <%end%>
+    </ul>
+    <%end%>
+<%end%>
