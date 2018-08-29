@@ -1,0 +1,5 @@
+<h3>List of all maintenances existents.</h3>
+
+<% Maintenance.all.each do |maintenance| %>
+    <p><a href="/maintenances/<%= maintenance.id %>"> <%= maintenance.equipment.code %> | <%= maintenance.equipment.name %> | <%= maintenance.status %></a></p>
+<%end%>
