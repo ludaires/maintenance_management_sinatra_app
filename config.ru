@@ -16,4 +16,5 @@ use CodesController
 use MaintenancesController
 use InspectionsController
 use InspectionPartsController
+use EquipmentController
 run ApplicationController
