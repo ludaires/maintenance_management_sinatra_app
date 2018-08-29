@@ -1,3 +1,7 @@
+<% if flash[:message] %>
+  <h2><%= flash[:message] %></h2>
+<% end %>
+
 <h2>Edit Code</h2>
 
 <% if @c.errors.any? %>
@@ -25,5 +29,9 @@
 <h3>Other actions: </h3>
 <p> 
     <a href="/codes/create_code"><button>Create</button></a>
-    <a href='/codes/<%=@c.id%>/delete'><button>Delete</button></a>
+    <form method="post" action="/codes/<%=@c.id%>/delete"> 
+    <label for="delete">Delete</label>
+    <input id="label" type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete">
+</form>
 </p>
