@@ -1,3 +1,8 @@
+<!-- Display error message if-->
+<% if flash[:message] %>
+  <h2><%= flash[:message] %></h2>
+<% end %>
+
 <h2>Create Maintenance</h2>
 
 <form method="post" action="/maintenances">
