@@ -1,9 +1,16 @@
-<h2>Maintenance ID: <%= @maintenance.equipment.id %></h2>
+<% if flash[:message] %>
+  <h2><%= flash[:message] %></h2>
+<% end %>
+
+<h2>Maintenance ID: <%= @maintenance.id %></h2>
 <p>Equipment: <%= @maintenance.equipment.name %></p>
 <p>User: <%= @maintenance.user.username %></p>
 <p>Code: <%= @maintenance.equipment.code %></p>
 <p>Status: <%= @maintenance.status %></p>
 <p>Inspection Type: <%= @inspection.inspection_type %></p>
+
+
+
 
 <% if @maintenance.status == "in_progress" %>
     <form method="post" action="/maintenances/<%= @maintenance.id %>/inspections">
@@ -52,4 +59,10 @@
     <h3>This Maintenance is closed.</h3>
 <%end%>
 
+<form action="/maintenances/<%= @maintenance.id %>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="Delete">
+  <input type="submit" value="Delete">
+</form>
+
 <a class="btn btn-link" href="../users/id">Back</a>
+
