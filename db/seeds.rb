@@ -498,3 +498,5 @@ puts 'Seeding the equipment...'
 ].each { |part|
     Part.find_or_create_by(description: part[:description])
 }
+
+@user_test = User.create(username: "user_test", email: "user@test.com", password: "123")
