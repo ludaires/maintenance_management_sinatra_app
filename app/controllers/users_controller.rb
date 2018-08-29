@@ -3,8 +3,7 @@ class UsersController < ApplicationController
     # route to sign up
     get '/signup' do
         if logged_in?
-            @user = current_user
-            redirect :"/users/#{@user.id}"
+            redirect :"/users/#{current_user.id}"
         end
         erb :'/users/signup'
     end
@@ -14,7 +13,7 @@ class UsersController < ApplicationController
         if @user.save
             set_session
             flash[:message] = "You have successfully signed in!"
-            redirect :"/users/#{@user.id}"
+            redirect :"/users/#{current_user.id}"
         else
             flash[:message] = "Something went wrong: #{@user.errors.full_messages.to_sentence}"
             redirect :'/signup'
@@ -24,8 +23,7 @@ class UsersController < ApplicationController
     # route to log in
     get '/login' do
         if logged_in?
-            @user = current_user
-            redirect :"/users/#{@user.id}"
+            redirect :"/users/#{current_user.id}"
         end
         erb :'/users/login'
     end
@@ -36,7 +34,7 @@ class UsersController < ApplicationController
             set_session
             redirect :"/users/#{@user.id}"
         else
-            flash[:message] = "Something went wrong"
+            flash[:message] = "Something went wrong: username or password wrong!"
             redirect :'/signup'
         end
     end
@@ -73,7 +71,6 @@ class UsersController < ApplicationController
 
     # home page user
     get '/users/:id' do
-        @user = current_user
         if logged_in?
             erb :'/users/show'
         else
