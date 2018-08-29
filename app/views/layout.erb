@@ -14,10 +14,21 @@
     <link rel="stylesheet" href="/assets/main.css" />
   </head>
   <body>
-    <div class="wrapper">
 
+    <div class="navbar">
+
+    <% if logged_in? %>
+      <a href="/users/<%=current_user.id%>">Home</a>
+      <a href="/logout">Log Out</a>
+      <a href="/maintenances">Maintenances</a>
+      <a href="/equipment">Equipment</a>
+    <% end %>
+    </div>
+
+    <div class="wrapper">
         <%= yield %>
-    <br></br>
+      <br></br>
+
       <footer class="branding">
         <small>&copy; 2018 <strong>MaintenanceManagement</strong></small>
       </footer>
