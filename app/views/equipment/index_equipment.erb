@@ -1,12 +1,38 @@
-<h3>List of all equipments existents.</h3>
+<div class="pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Equipment</h1>        
+    <div class="table-responsive pt-2">
+        <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                <th>#</th>          
+                <th>Name</th>       
+                <th>Last Maintenance</th>          
+                <th>Date</th>          
+                </tr>
+            </thead>
+            <tbody>       
+                <% Equipment.all.each do |equipment| %>
+                <tr>
+                <th scope="row"><a href="/equipment/<%= equipment.id %>"><%= equipment.code %></a></td>          
+                <td><%= equipment.name %></td>          
+                <td>
+                    <% if !equipment.maintenances.empty? %>
+                    <% last = equipment.maintenances.last %>
+                    <a href="/maintenances/<%= last.id %>"><%= last.status %></a>
+                    <% end %>
+                </td>  
+                <td>
+                    <% if !equipment.maintenances.empty? %>
+                        <% last = equipment.maintenances.last %>
+                        <%= last.updated_at %>
+                    <% end %>
+                    </td>          
+                </tr>
+                <%end%>       
+            </tbody>
+        </table>
+    </div>    
+</div>
 
-<% Equipment.all.each do |equipment| %>
-    <p><%= equipment.code %> | <%= equipment.name %></p>
-    <ul>
-            <%if equipment.maintenances %>
-            <% equipment.maintenances.each do |m|%>
-                <li><p><a href="maintenances/<%= m.id %>">Maintenance ID: <%= m.id %> | <%= m.status %> | <%= m.user.username %></a></p></li>
-            <%end%>
-    </ul>
-    <%end%>
-<%end%>
+
+
