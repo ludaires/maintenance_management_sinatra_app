@@ -1,7 +1,11 @@
 <!-- Display user's home page-->
+<p class="text-danger">
 <% if flash[:message] %>
-  <h2><%= flash[:message] %></h2>
+  <%= flash[:message] %>
 <% end %>
+</p>
+
+
 
 <h1>Welcome, <%= current_user.username.capitalize %></h1>
 <br></br>
@@ -12,7 +16,5 @@
   </ul>
 <%end%>
 <br></br>
-<%# logout %>
-<p><a href="/logout"><button>Logout</button></a></p>
 <%# create a new maintenance %>
 <p><a href="../maintenances/new"><button>Create Maintenance</button></a></p>
