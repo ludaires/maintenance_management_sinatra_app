@@ -1,7 +1,10 @@
 <!-- Display error message if-->
+<p class="text-danger">
 <% if flash[:message] %>
-  <h2><%= flash[:message] %></h2>
+  <%= flash[:message] %>
 <% end %>
+</p>
+
 
 <h2>Create Maintenance</h2>
 

@@ -1,6 +1,9 @@
+<p class="text-danger">
 <% if flash[:message] %>
-  <h2><%= flash[:message] %></h2>
+  <%= flash[:message] %>
 <% end %>
+</p>
+
 
 <h2>Please, enter your user name and password</h2>
 
@@ -15,7 +18,7 @@
     </p><br>
     <input type="submit" value="Log In">
 </form>
-
+<br>
 <p> <a href="/"><button>Go Back</button></a></p>
 
     
