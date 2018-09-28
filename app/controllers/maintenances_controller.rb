@@ -44,7 +44,7 @@ class MaintenancesController < ApplicationController
     get '/maintenances/:id' do
         @maintenance = Maintenance.find(params[:id])
         @inspection = Inspection.find(@maintenance.id)
-        if logged_in? && @maintenance.user.id == current_user.id
+        if logged_in?
             @issues = Code.where(code_type: "Problemas")
             @causes = Code.where(code_type: "Causas")
             @actions = Code.where(code_type: "Ações")
@@ -57,16 +57,10 @@ class MaintenancesController < ApplicationController
 
     post '/maintenances/:id/inspections' do
         @inspection = Inspection.find(params[:inspection][:maintenance_id])
-        @maintenance = Maintenance.find(params[:id])
-        # if logged_in? && @maintenance.user.id == current_user.id
-            @inspection_part = InspectionPart.create(inspection_id: @inspection.id, part_id: params[:inspection_parts][:part_id])
-            codes = "#{params[:inspection_parts][:"code_id_1"]}, #{params[:inspection_parts][:"code_id_2"]}, #{params[:inspection_parts][:"code_id_3"]}"
-            @inspection_part.update(codes: codes)
-            redirect :"/inspection_parts/#{@inspection_part.id}"
-        # else
-            # flash[:message] = "Your user doesn't have the permission to edit this maintenance."
-            # redirect :'/users/login'
-        # end
+        @inspection_part = InspectionPart.create(inspection_id: @inspection.id, part_id: params[:inspection_parts][:part_id])
+        codes = "#{params[:inspection_parts][:"code_id_1"]}, #{params[:inspection_parts][:"code_id_2"]}, #{params[:inspection_parts][:"code_id_3"]}"
+        @inspection_part.update(codes: codes)
+        redirect :"/inspection_parts/#{@inspection_part.id}"
     end
 
     # edit maintenance - close status
