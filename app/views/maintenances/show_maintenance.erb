@@ -13,50 +13,54 @@
 
 
 
-
-<% if @maintenance.status == "in_progress" %>
-    <form method="post" action="/maintenances/<%= @maintenance.id %>/inspections">
-        <h3>Create New Inspection</h2>    
-        <input type="hidden" name="inspection[maintenance_id]" value="<%= @maintenance.id %>"><br>
-    
-        <label for="inspection_parts">Items verified:</label>
-        <select id="inspection_parts" name="inspection_parts[part_id]">
-            <% Part.all.each do |part| %>
-                <option value="<%=part.id%> "><%= "#{part.description}" %></option>
-            <% end %>
-        </select>  
-        <select id="inspection_parts" name="inspection_parts[code_id_1]">
-            <% @issues.each do |code| %>
-            <option value="<%=code.title%> "><%= "#{code.code_type} | #{code.title}" %></option>
-            <% end %>
-        </select> 
-
-        <select id="inspection_parts" name="inspection_parts[code_id_2]">
-            <% @causes.each do |code| %>
-            <option value="<%=code.title%> "><%= "#{code.code_type} | #{code.title}" %></option>
-            <% end %>
-        </select> 
-
-        <select id="inspection_parts" name="inspection_parts[code_id_3]">
-            <% @actions.each do |code| %>
-            <option value="<%=code.title%> "><%= "#{code.code_type} | #{code.title}" %></option>
-            <% end %>
-        </select> 
-        <br></br>
-
-         <label for="notes">Notes:</label>
-        <input id="notes" text="text" name="inspection[notes]" placeholder="Notes...">
-        <br></br>
-        <input type="submit" value="Save">
-        <p><a href="../maintenances/<%= @maintenance.id %>/edit"><button>Close maintenance</button></a></p>
-    </form>
-<%else%>
-    <p>Items Checked:</p>
+<%if logged_in? %>
+    <% if @inspection.inspection_parts%>
+        <p>Items Checked:</p>
     <ul>
         <% @inspection.inspection_parts.each do |ip| %>
             <li><p><%= @description = Part.find(ip.part_id).description %> | <%= ip.codes %></p></li>
         <%end%>
     </ul>
+    <br></br>
+    <% end %>
+    <% if @maintenance.status == "in_progress" && @maintenance.user.id == current_user.id %>
+        <form method="post" action="/maintenances/<%= @maintenance.id %>/inspections">
+            <h3>Create New Inspection</h2>    
+            <input type="hidden" name="inspection[maintenance_id]" value="<%= @maintenance.id %>"><br>
+        
+            <label for="inspection_parts">Items verified:</label>
+            <select id="inspection_parts" name="inspection_parts[part_id]">
+                <% Part.all.each do |part| %>
+                    <option value="<%=part.id%> "><%= "#{part.description}" %></option>
+                <% end %>
+            </select>  
+            <select id="inspection_parts" name="inspection_parts[code_id_1]">
+                <% @issues.each do |code| %>
+                <option value="<%=code.title%> "><%= "#{code.code_type} | #{code.title}" %></option>
+                <% end %>
+            </select> 
+
+            <select id="inspection_parts" name="inspection_parts[code_id_2]">
+                <% @causes.each do |code| %>
+                <option value="<%=code.title%> "><%= "#{code.code_type} | #{code.title}" %></option>
+                <% end %>
+            </select> 
+
+            <select id="inspection_parts" name="inspection_parts[code_id_3]">
+                <% @actions.each do |code| %>
+                <option value="<%=code.title%> "><%= "#{code.code_type} | #{code.title}" %></option>
+                <% end %>
+            </select> 
+            <br></br>
+
+            <label for="notes">Notes:</label>
+            <input id="notes" text="text" name="inspection[notes]" placeholder="Notes...">
+            <br></br>
+            <input type="submit" value="Save">
+            <p><a href="../maintenances/<%= @maintenance.id %>/edit"><button>Close maintenance</button></a></p>
+        </form>
+    <%end%>
+<%else%>
     <br></br>
     <h3>This Maintenance is closed.</h3>
 <%end%>
