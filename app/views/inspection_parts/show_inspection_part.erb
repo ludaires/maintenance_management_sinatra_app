@@ -10,7 +10,8 @@
 <p>Analyses Code: <%= @inspection_part.codes %>
 
 
-
+<p><a href="../inspection_parts/<%= @inspection_part.id %>/edit"><button>Edit this inspection</button></a></p>
+<br>
 <p><a href="../maintenances/<%= @inspection_part.inspection.maintenance.id %>"><button>Add new item to inspect</button></a></p>
 <p><a href="../maintenances/<%= @inspection_part.inspection.maintenance.id %>/edit"><button>Close maintenance</button></a></p>
 <a class="btn btn-link" href="../users/id">Back</a>
