@@ -7,14 +7,13 @@
 
 
 
-<h1>Welcome, <%= current_user.username.capitalize %></h1>
+<h2>Welcome, <%= current_user.username.capitalize %></h2>
 <br></br>
-<h2> List of your Maintenances </h2>
+<h3> List of your Maintenances </h3>
 <% current_user.maintenances.each do |maintenance| %>
   <ul>
     <li><p><a href="/maintenances/<%=maintenance.id%>"><%= maintenance.equipment.code%> | <%= maintenance.equipment.name%> | <%= maintenance.status%></a></p></li>
   </ul>
 <%end%>
 <br></br>
-<%# create a new maintenance %>
 <p><a href="../maintenances/new"><button>Create Maintenance</button></a></p>
