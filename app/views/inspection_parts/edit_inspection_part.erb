@@ -1,0 +1,33 @@
+<form method="post" action="/inspection_parts/<%= @inspection_part.id %>">
+    <input type="hidden" name="_method" value="Patch">
+    <h2>Edit Inspection</h2>    
+    <%# <input type="hidden" name="inspection[maintenance_id]" value="<%= @inspection_part.inspection.maintenance.id%>
+
+    <label for="inspection_parts">Items verified:</label>
+    <select id="inspection_parts" name="inspection_parts[part_id]">
+        <% Part.all.each do |part| %>
+            <option value="<%= part.id %>"><%= "#{part.description}" %></option>
+        <% end %>
+    </select>  
+    <select id="inspection_parts" name="inspection_parts[code_id_1]">
+        <% @issues.each do |code| %>
+        <option value="<%=code.title%> "><%= "#{code.code_type} | #{code.title}" %></option>
+        <% end %>
+    </select> 
+
+    <select id="inspection_parts" name="inspection_parts[code_id_2]">
+        <% @causes.each do |code| %>
+        <option value="<%=code.title%> "><%= "#{code.code_type} | #{code.title}" %></option>
+        <% end %>
+    </select> 
+
+    <select id="inspection_parts" name="inspection_parts[code_id_3]">
+        <% @actions.each do |code| %>
+        <option value="<%=code.title%> "><%= "#{code.code_type} | #{code.title}" %></option>
+        <% end %>
+    </select> 
+    <input type="submit" value="Update Inspection">
+</form>
+
+
+TO DO => CRIAR BOTÃO DE EDIT INSPECTION PARTS.
