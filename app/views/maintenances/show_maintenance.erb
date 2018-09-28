@@ -27,19 +27,19 @@
         </select>  
         <select id="inspection_parts" name="inspection_parts[code_id_1]">
             <% @issues.each do |code| %>
-            <option value="<%=code.code%> "><%= "#{code.code_type} | #{code.title}" %></option>
+            <option value="<%=code.title%> "><%= "#{code.code_type} | #{code.title}" %></option>
             <% end %>
         </select> 
 
         <select id="inspection_parts" name="inspection_parts[code_id_2]">
             <% @causes.each do |code| %>
-            <option value="<%=code.code%> "><%= "#{code.code_type} | #{code.title}" %></option>
+            <option value="<%=code.title%> "><%= "#{code.code_type} | #{code.title}" %></option>
             <% end %>
         </select> 
 
         <select id="inspection_parts" name="inspection_parts[code_id_3]">
             <% @actions.each do |code| %>
-            <option value="<%=code.code%> "><%= "#{code.code_type} | #{code.title}" %></option>
+            <option value="<%=code.title%> "><%= "#{code.code_type} | #{code.title}" %></option>
             <% end %>
         </select> 
         <br></br>
