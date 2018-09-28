@@ -59,10 +59,9 @@
             <input type="submit" value="Save">
             <p><a href="../maintenances/<%= @maintenance.id %>/edit"><button>Close maintenance</button></a></p>
         </form>
-    <%end%>
-<%else%>
-    <br></br>
+    <%else%>
     <h3>This Maintenance is closed.</h3>
+    <%end%>
 <%end%>
 
 <form action="/maintenances/<%= @maintenance.id %>/delete" method="post">
