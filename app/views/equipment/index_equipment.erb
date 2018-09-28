@@ -7,7 +7,8 @@
                 <th>#</th>          
                 <th>Name</th>       
                 <th>Last Maintenance</th>          
-                <th>Date</th>          
+                <th>Date</th>      
+                <th>Next Maintenance</th>     
                 </tr>
             </thead>
             <tbody>       
@@ -26,7 +27,13 @@
                         <% last = equipment.maintenances.last %>
                         <%= last.updated_at %>
                     <% end %>
-                    </td>          
+                </td>   
+                <td>
+                    <% if !equipment.maintenances.empty? %>
+                        <% last = equipment.maintenances.last %>
+                        <%= last.next_maintenance_date %>
+                    <% end %>
+                </td>           
                 </tr>
                 <%end%>       
             </tbody>
