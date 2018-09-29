@@ -1,5 +1,6 @@
 class InspectionPartsController < ApplicationController
 
+ # reading inspection_parts
     get '/inspection_parts/:id' do
         @inspection_part = InspectionPart.find(params[:id])
         @user = @inspection_part.inspection.maintenance.user
@@ -11,7 +12,7 @@ class InspectionPartsController < ApplicationController
         end
     end
 
-# edit inspection parts
+# Updating inspection parts
 
     get '/inspection_parts/:id/edit' do
         @inspection_part = InspectionPart.find(params[:id])

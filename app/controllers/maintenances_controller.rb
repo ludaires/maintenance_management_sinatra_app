@@ -1,6 +1,6 @@
 class MaintenancesController < ApplicationController
 
-# create new maintenance
+# creating new maintenance and inspection
     get '/maintenances/new' do
         if logged_in?             
             erb :'/maintenances/create_maintenance'
@@ -36,11 +36,12 @@ class MaintenancesController < ApplicationController
         end
     end
 
+# reading all maintenances created.
     get '/maintenances' do
         erb :'/maintenances/index_maintenances'
     end
     
-# add maintenance details using inspection and inspection_parts models.
+# creating inspection_parts => add maintenance details using inspection and inspection_parts models. Reading the maintenance created.
     get '/maintenances/:id' do
         @maintenance = Maintenance.find(params[:id])
         @inspection = Inspection.find(@maintenance.id)
@@ -63,7 +64,7 @@ class MaintenancesController < ApplicationController
         redirect :"/inspection_parts/#{@inspection_part.id}"
     end
 
-    # edit maintenance - close status
+    # updating maintenance - close status
     get '/maintenances/:id/edit' do
         @maintenance = Maintenance.find(params[:id])
         if logged_in? && @maintenance.user.id == current_user.id
@@ -80,6 +81,7 @@ class MaintenancesController < ApplicationController
         redirect :"/maintenances/#{@maintenance.id}"
     end
 
+    # Destroying maintenance
     delete '/maintenances/:id/delete' do
         @maintenance = Maintenance.find(params[:id])
        if logged_in? && @maintenance.user.id == current_user.id
