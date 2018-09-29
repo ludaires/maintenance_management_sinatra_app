@@ -2,7 +2,7 @@
 
 Helping maintenance teams keep a record of all assets they are responsible for, schedule and track maintenance tasks, and keep a historical record of work they perform.
 
-This project is currently built on Sinatra. 
+This project is currently built on Sinatra for https://flatironschool.com/career-courses/coding-bootcamp/online/.
 
 ## Installation
 
