@@ -14,6 +14,10 @@ then:
 
 $ bundle install
 
+Run $ rake db:migrate to set up the database
+
+Run $ shotgun to start a local server on port 9393
+
 ### Contribution
 Please create a descriptive pull request.
 
