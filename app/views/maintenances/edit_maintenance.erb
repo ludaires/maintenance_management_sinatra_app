@@ -2,6 +2,7 @@
 <h3>Close maintenance </h3>
 <p> Maintenance ID: <%= @maintenance.id%></p>
 <p> Equipment:  <%= @maintenance.equipment.name %></p>
+
 <form method="post" action="/maintenances/<%= @maintenance.id%>">
     <input type="hidden" name="_method" value="Patch">
     <select id="status" name="status" placehold="<%= @maintenance.status%>">

@@ -77,7 +77,12 @@ class MaintenancesController < ApplicationController
 
     patch '/maintenances/:id' do
         @maintenance = Maintenance.find(params[:id])
-        @maintenance.update(status: params[:status])
+        if logged_in? && @maintenance.user.id == current_user.id
+            @maintenance.update(status: params[:status])
+        else
+            flash[:message] = "Your user doesn't have the permission to edit this maintenance."
+            redirect :'/users/login'
+        end
         redirect :"/maintenances/#{@maintenance.id}"
     end
 
